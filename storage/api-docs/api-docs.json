@@ -1,0 +1,259 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Product test Api",
+        "description": "Product test api documentation by Achille DJ",
+        "contact": {
+            "email": "achilledjegnon@gmail.com"
+        },
+        "license": {
+            "name": "Product test api 1.0",
+            "url": ""
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login",
+                "operationId": "Login",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "firstname": {
+                                            "type": "string",
+                                            "example": "Luc"
+                                        },
+                                        "lastname": {
+                                            "type": "string",
+                                            "example": "DuPont"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "luc@test.com"
+                                        },
+                                        "email_verified_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "example": "$Ay102$4T9EWGTDEBuncdLsxqpuG.jvL11o2GMWB.IUxuAdqq6JFT5Qsrq"
+                                        },
+                                        "remember_token": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "token": {
+                                            "type": "string",
+                                            "example": "Wdf325dfsdwfcsdwfcd@sdwf/|sdfsdwfksjwdnk,n"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message1": {
+                                            "type": "string",
+                                            "example": "This email does not correspond to any user"
+                                        },
+                                        "message2": {
+                                            "type": "string",
+                                            "example": "This email does not correspond to any user with this password"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout",
+                "operationId": "5a45c82feb8ab14c267a8b79eb5fadb7",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Disconnection to perform"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status"
+                    }
+                }
+            }
+        },
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get Product list",
+                "operationId": "findPetsByStatus",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Jessica"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "The best product"
+                                        },
+                                        "price": {
+                                            "type": "string",
+                                            "example": 1500
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status"
+                    }
+                }
+            }
+        },
+        "/api/product_variants": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get Product variant list",
+                "operationId": "b05a93ebe7cdb088060e4b70e06e2e04",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Boy Brow"
+                                        },
+                                        "price": {
+                                            "type": "string",
+                                            "example": 250
+                                        },
+                                        "product": {
+                                            "type": "string",
+                                            "example": {
+                                                "id": 1,
+                                                "name": "Jessica",
+                                                "description": "The best product",
+                                                "price": 1500
+                                            }
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status"
+                    }
+                }
+            }
+        }
+    }
+}
