@@ -3,6 +3,7 @@
 <p>create in mysql the database with the name product_test and add it in your .env file</p>
 
 <p>.env file:</p>
+<p>L5_SWAGGER_GENERATE_ALWAYS=true</p>
 <p>DB_CONNECTION=mysql</p>
 <p>DB_HOST=127.0.0.1</p>
 <p>DB_PORT=3306</p>

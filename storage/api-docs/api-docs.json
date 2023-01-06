@@ -147,7 +147,12 @@
                     "400": {
                         "description": "Invalid status"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         },
         "/api/products": {
@@ -253,6 +258,16 @@
                         "description": "Invalid status"
                     }
                 }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearer_token": {
+                "type": "apiKey",
+                "description": "Sanctum security",
+                "name": "Authorization",
+                "in": "header"
             }
         }
     }

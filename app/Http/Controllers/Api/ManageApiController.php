@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Helper\GenerateToken;
 use App\Models\Product\Product;
 use App\Models\Product\ProductVariant;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class ManageApiController extends Controller
 {
@@ -70,7 +74,8 @@ class ManageApiController extends Controller
         if(!Hash::check($user_connect["password"], $user->password)){
             return response(["message" => "This email does not correspond to any user with this password"], 401);
         }
-        $tok = GenerateToken::genererConnexionToken();
+        Auth::login($user);
+        $tok = GenerateToken::generateLoginToken();
         $token = $user->createToken("$tok")->plainTextToken;
         return response([
             "user" => $user,
@@ -100,10 +105,9 @@ class ManageApiController extends Controller
         if(!(auth('sanctum')->check())){
             return response(["message" => "Authorization required"], 404);
         }
-        Auth::user()->tokens->each(function ($token, $key) {
-            $token->delete();
-        });
-        return response(["message" => "Disconnection to perform"], 200);
+        $user = auth('sanctum')->user();
+        $user->tokens()->delete();
+        return response(["message" => "Deconnexion effectuer"], 200);
     }
 
     /**

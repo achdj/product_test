@@ -17,6 +17,6 @@ class Product extends Model
 
     public function product_variant()
     {
-        return $this->belongsTo('App\Models\Product\ProductVariant');
+        return $this->hasMany(ProductVariant::class);
     }
 }

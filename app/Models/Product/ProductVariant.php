@@ -15,8 +15,12 @@ class ProductVariant extends Model
         'product_id'
     ];
 
+    protected $with = [
+        'product',
+    ];
+
     public function product()
     {
-        return $this->hasMany('App\Models\Product\Product');
+        return $this->belongsTo(Product::class);
     }
 }

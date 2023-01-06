@@ -18,7 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(["middleware" => ["auth:sanctum"]], function() {
+Route::group(["middleware" => ["api_auth:sanctum"]], function() {
     Route::get('/products', [\App\Http\Controllers\Api\ManageApiController::class ,'getProduct']);
     Route::get('/product_variants', [\App\Http\Controllers\Api\ManageApiController::class ,'getProductVariant']);
     Route::get('/logout', [\App\Http\Controllers\Api\ManageApiController::class ,'logout']);
