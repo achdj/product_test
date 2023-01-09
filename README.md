@@ -18,3 +18,5 @@ npm run dev
 
 <p>Email: root@producttest.com</p>
 <p>Mot de passe: p@ssWordT£5t</p>
+
+##To connect to the swagger part you simply have to connect to the application and you would be authorized to retrieve the data from swagger
